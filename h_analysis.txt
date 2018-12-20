@@ -1,0 +1,13 @@
+# 将 N 个圆盘从 A 经过 BUFFER 移动到 C
+def hano(n, A, buffer, C):
+    # 基础情况
+    if n == 1:
+        print('%s --> %s'%(A,C))
+    # 递归情况
+    else:
+        # 将前 n-1 个圆盘从 A 经过 C 移动到 buffer
+        hano(n-1, A, C, buffer)
+        # 将第 n 个圆盘从 A 移动到 C
+        hano(1, A, buffer, C)
+        # 将前 n-1 个圆盘从 B 经过 A 移动到 C
+        hano(n-1, buffer, A, C)
